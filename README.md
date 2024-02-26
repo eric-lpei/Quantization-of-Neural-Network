@@ -26,4 +26,26 @@ For simple MLP module, I plan to use MNIST or Fashion MNIST to test, and for the
 Since this project aims to quantize the module based on pretrain module, so it's unnecessary to split to the validation set.
 
 
-## Part 2: DatasetsX
+## Part 2: Datasets
+
+### Source
+MNIST： We can derectly download the datasets through pytroch. Here are partial codes to do that.
+
+train_set= datasets.MNIST("../DATA", train=True,  download=True, transform=pipeline)
+test_set= datasets.MNIST("../DATA", train=False,  download=True, transform=pipeline)
+
+train_data = DataLoader(train_set, batch_size= BATCH_SIZE, shuffle=True)
+test_data = DataLoader(test_set, batch_size = BATCH_SIZE, shuffle=True)
+
+EMNIST:  EMNIST is Extended MNIST. It contains six different classes: By_Class, By_Merge, Balanced, Digits , Letters and MNIST. And all the images have 28*28 pixels. EMNIST digits has 28000 images, which are classified into 10 categories.
+
+Thank for Adam's suggestion. EMNIST digits could be a great testset to verify the performances of my final network.
+
+Same as the MNIST, pytorch can provide the same API to directly download the EMNIST digits.
+
+train_set = datasets.EMNIST("../DATA", split='digits', train=True, download=True, transform=pipeline)
+test_set = datasets.EMNIST("../DATA", split='digits', train=False, download=True, transform=pipeline)
+
+### Train and validation subsets
+Train subsets are used to let our model learn different characters and details. And the validation subsets are used to test the performance of our model after each epoch. We need to adjust our hyperparameters based on the reflection of validation subsets to improve the overall performance. Of course, based on the tendence of the loss, we can choose to early stop the training to avoid some overfitting.
+
