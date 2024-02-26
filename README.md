@@ -1,6 +1,6 @@
 # Quantization of Neural Network
 
-##Part 1: Conceptual Design
+## Part 1: Conceptual Design
 
 ### Introduction
 As deep learning technology continues to evolve, we have been able to develop increasingly large and complex models that demonstrate exceptional performance across various domains. However, this progress also introduces new challenges, particularly in terms of hardware resource requirements. The high computational demands of large deep learning models lead to increased latency, higher energy consumption, and issues with chip size and cost. Therefore, the quantization of neural networks becomes critically important.
@@ -26,4 +26,4 @@ For simple MLP module, I plan to use MNIST or Fashion MNIST to test, and for the
 Since this project aims to quantize the module based on pretrain module, so it's unnecessary to split to the validation set.
 
 
-##Part 2: DatasetsX
+## Part 2: DatasetsX
